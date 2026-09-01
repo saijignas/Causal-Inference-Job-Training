@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+
+jobs:
+  smoke-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      # No pytest suite -- this is a self-contained analysis (the .dta
+      # files are committed, no network needed), so CI smoke-tests that
+      # the full analysis, including the bootstrap CIs, still runs
+      # end-to-end without erroring.
+      - name: Run the full causal analysis
+        run: python src/analysis.py
