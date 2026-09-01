@@ -1,4 +1,5 @@
 # Does Naive Comparison Lie? — Causal Inference on the LaLonde Benchmark
+![CI](https://github.com/saijignas/Causal-Inference-Job-Training/actions/workflows/ci.yml/badge.svg)
 
 Answers a question every analyst eventually runs into: you have a group
 that got a treatment and a group that didn't, they weren't randomly
